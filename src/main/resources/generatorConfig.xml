@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="default" targetRuntime="MyBatis3DynamicSql" defaultModelType="flat">
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" />
+        <!--<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />-->
+        <!--<plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />-->
+        <commentGenerator>
+            <!-- 这个元素用来去除指定生成的注释中是否包含生成的日期 false:表示保护 -->
+            <!-- 如果生成日期，会造成即使修改一个字段，整个实体类所有属性都会发生变化，不利于版本控制，所以设置为true -->
+            <!--<property name="suppressDate" value="true"/>-->
+            <!--<property name="addRemarkComments" value="true"/>-->
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.115.254.14:3306/haiyan_statistic?useUnicode=true&amp;ampcharacterEncoding=utf-8&amp;autoReconnect=true"
+                        userId="root" password="redhat">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <!-- This property is used to specify whether MyBatis Generator should
+                force the use of java.math.BigDecimal for DECIMAL and NUMERIC fields, -->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="com.gome.statistic.infrastructure.mysql.entity"
+                            targetProject="./src/main/java/">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件的包名和位置 -->
+        <sqlMapGenerator targetPackage="com.gome.statistic.infrastructure.mysql.mapper"
+                         targetProject="./src/main/java/">
+            <property name="enableSubPackages" value="true"/>
+
+        </sqlMapGenerator>
+
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.gome.statistic.infrastructure.mysql.mapper"
+                             targetProject="./src/main/java/">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!-- 要生成哪些表 -->
+
+        <!--<table tableName="lease_audit_record" domainObjectName="LeaseAuditRecordEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+        <table tableName="lease_contract_attrach" domainObjectName="LeaseContractAttrachEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+
+
+        <table tableName="lease_contract_dynamic" domainObjectName="LeaseContractDynamicEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+        <table tableName="lease_contract_fee_item" domainObjectName="LeaseContractFeeItemEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+
+
+        <table tableName="lease_contract_property" domainObjectName="LeaseContractPropertyEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+        <table tableName="lease_contract_property_energy" domainObjectName="LeaseContractPropertyEnergyEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+        <table tableName="lease_contract_property_info" domainObjectName="LeaseContractPropertyInfoEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+        <table tableName="lease_contract_property_renovation" domainObjectName="LeaseContractPropertyRenovationEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+
+
+        <table tableName="out_user_attach" domainObjectName="OutUserAttachEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+
+
+        <table tableName="reserve_contract_info" domainObjectName="ReserveContractInfoEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+        <table tableName="out_ano_user_info" domainObjectName="OutAnoUserInfoEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <table tableName="out_user_info" domainObjectName="OutUserInfoEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+            <columnOverride column="card_number_security" typeHandler="com.ybejia.house.intrastructure.mysql.handler.AESEncryptHandler"/>
+            <columnOverride column="mobile_security" typeHandler="com.ybejia.house.intrastructure.mysql.handler.AESEncryptHandler"/>
+            <columnOverride column="card_number" typeHandler="com.ybejia.house.intrastructure.mysql.handler.CardMaskHandler"/>
+            <columnOverride column="mobile" typeHandler="com.ybejia.house.intrastructure.mysql.handler.PhoneMaskHandler"/>
+        </table>    -->
+
+        <!--<table tableName="lease_retire_info" domainObjectName="LeaseRetireInfoEntity"-->
+
+        <!--enableCountByExample="true" enableUpdateByExample="true"-->
+        <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+        <!--selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>-->
+        <!--</table>-->
+
+        <table tableName="haiyan_user_analyse" domainObjectName="HaiyanUserAnalyseEntity"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+        </table>
+        <!--
+
+                <table tableName="outhouse_company_config" domainObjectName="OuthouseCompanyConfigEntity"
+
+                       enableCountByExample="true" enableUpdateByExample="true"
+                       enableDeleteByExample="true" enableSelectByExample="true"
+                       selectByExampleQueryId="true">
+                    <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+                </table>
+        -->
+
+        <!--        <table tableName="out_user_detail" domainObjectName="OutUserDetail"
+
+                       enableCountByExample="true" enableUpdateByExample="true"
+                       enableDeleteByExample="true" enableSelectByExample="true"
+                       selectByExampleQueryId="true">
+                    <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+                </table>-->
+
+        <!--        <table tableName="lease_contract_info" domainObjectName="LeaseContractInfoEntity"
+
+                       enableCountByExample="true" enableUpdateByExample="true"
+                       enableDeleteByExample="true" enableSelectByExample="true"
+                       selectByExampleQueryId="true">
+                    <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+                </table>-->
+
+        <!--<table tableName="lease_contract_detail" domainObjectName="LeaseContractDetailEntity"-->
+        <!--enableCountByExample="true" enableUpdateByExample="true"-->
+        <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+        <!--selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>-->
+        <!--</table>-->
+
+        <!--
+                <table tableName="lease_retire_fee_item" domainObjectName="LeaseRetireFeeItemEntity"
+                       enableCountByExample="true" enableUpdateByExample="true"
+                       enableDeleteByExample="true" enableSelectByExample="true"
+                       selectByExampleQueryId="true">
+                    <generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>
+                </table>
+        -->
+
+        <!--<table tableName="lease_contract_info" domainObjectName="LeaseContractInfoEntity"-->
+
+        <!--enableCountByExample="true" enableUpdateByExample="true"-->
+        <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+        <!--selectByExampleQueryId="true">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT replace(uuid(),'-','') FROM dual"/>-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>
